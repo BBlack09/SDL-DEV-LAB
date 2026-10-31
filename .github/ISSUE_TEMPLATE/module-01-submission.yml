@@ -1,0 +1,95 @@
+name: "🔬 Module 01 Lab Submission: Hyperparameters & Decoding"
+description: "Submit your 7-run calibration matrix and empirical analysis for Module 01."
+title: "[Submission] Module 01: <Your Name>"
+labels: ["sdl-cohort", "module-01", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Dev Lab (SDL) Engineering Cohort: Module 01 Submission
+        Please complete all sections below. Refer to the [Module 01 Rubric](../../modules/module-01-hyperparameters/rubric.md) for grading criteria.
+
+  - type: input
+    id: student_name
+    attributes:
+      label: "Full Name & Handle"
+      description: "Enter your full name and Discord/Slack username."
+      placeholder: "e.g., Alex Chen (@alex_c)"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: track_selected
+    attributes:
+      label: "Creative Writing Prompt Track"
+      description: "Select the track you used for all 7 calibration runs."
+      options:
+        - "Track A: Speculative Hard Sci-Fi / Cyberpunk"
+        - "Track B: Victorian Gothic Horror / Eldritch Atmosphere"
+        - "Track C: Hardboiled Cyber-Investigation / Technical Post-Mortem"
+        - "Track D: Mythological Epic / Mythopoetic Worldbuilding"
+        - "Track E: Satirical Bureaucratic Dystopia / Absurdist Corporate Fiction"
+    validations:
+      required: true
+
+  - type: input
+    id: model_environment
+    attributes:
+      label: "Model & Runtime Environment"
+      description: "Specify the exact model name, provider, and API or UI runtime used."
+      placeholder: "e.g., Gemini 1.5 Pro (Google AI Studio) / Claude 3.5 Sonnet (Anthropic API)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: frozen_prompt
+    attributes:
+      label: "Frozen Base Prompt"
+      description: "Provide the exact system and user prompt used across all 7 calibration runs."
+      placeholder: "Paste the exact prompt text here..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: calibration_matrix
+    attributes:
+      label: "7-Run Calibration Matrix Results"
+      description: "Fill in the required 7-run calibration table."
+      value: |
+        | Run | Temp | Top-K | Top-P | Output Tokens | Perceived Coherence (1-10) | Key Qualitative Observations |
+        | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+        | **1** | 0.0 | 1 | 1.0 | | | Deterministic baseline |
+        | **2** | 0.2 | 40 | 0.8 | | | Focused coherence |
+        | **3** | 0.7 | 40 | 0.9 | | | Balanced creativity |
+        | **4** | 1.2 | 40 | 0.5 | | | High Temp / Constrained Nucleus |
+        | **5** | 0.9 | 10 | 0.95 | | | High Nucleus / Constrained Top-K |
+        | **6** | 1.4 | 100 | 0.98 | | | High entropy exploration |
+        | **7** | 1.8 | 200+ | 1.0 | | | Degeneration stress test |
+    validations:
+      required: true
+
+  - type: textarea
+    id: empirical_analysis
+    attributes:
+      label: "Empirical Analysis & Theoretical Reflection"
+      description: "Analyze the phase transitions between deterministic output and semantic breakdown. Discuss how Top-P and Top-K interact under high thermal regimes."
+    validations:
+      required: true
+
+  - type: textarea
+    id: sweet_spot
+    attributes:
+      label: "The 'Sweet Spot' Parameter Vector"
+      description: "State your recommended parameter vector (Temp, Top-K, Top-P) for this prompt track and provide engineering justification."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: self_audit
+    attributes:
+      label: "Self-Audit & Verification"
+      options:
+        - label: "I kept the prompt and model frozen across all 7 calibration runs."
+          required: true
+        - label: "I reviewed my submission against the 100-point rubric."
+          required: true
