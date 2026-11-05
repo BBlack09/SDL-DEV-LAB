@@ -1,5 +1,5 @@
 name: "🔬 Module 01 Lab Submission: Hyperparameters & Decoding"
-description: "Submit your 7-run calibration matrix and empirical analysis for Module 01."
+description: "Submit your compulsory Learning How to Learn benchmark matrix and elective domain output for Module 01."
 title: "[Submission] Module 01: <Your Name>"
 labels: ["sdl-cohort", "module-01", "needs-review"]
 body:
@@ -7,7 +7,7 @@ body:
     attributes:
       value: |
         ### Dev Lab (SDL) Engineering Cohort: Module 01 Submission
-        Please complete all sections below. Refer to the [Module 01 Rubric](../../modules/module-01-hyperparameters/rubric.md) for grading criteria.
+        Please complete all sections below. Refer to the [Module 01 Rubric](../../modules/module-01-hyperparameters/rubric.md) and [Module 01 Exercises](../../modules/module-01-hyperparameters/exercises.md) for full instructions.
 
   - type: input
     id: student_name
@@ -18,22 +18,8 @@ body:
     validations:
       required: true
 
-  - type: dropdown
-    id: track_selected
-    attributes:
-      label: "Creative Writing Prompt Track"
-      description: "Select the track you used for all 7 calibration runs."
-      options:
-        - "Track A: Speculative Hard Sci-Fi / Cyberpunk"
-        - "Track B: Victorian Gothic Horror / Eldritch Atmosphere"
-        - "Track C: Hardboiled Cyber-Investigation / Technical Post-Mortem"
-        - "Track D: Mythological Epic / Mythopoetic Worldbuilding"
-        - "Track E: Satirical Bureaucratic Dystopia / Absurdist Corporate Fiction"
-    validations:
-      required: true
-
   - type: input
-    id: model_environment
+    id: model_used
     attributes:
       label: "Model & Runtime Environment"
       description: "Specify the exact model name, provider, and API or UI runtime used."
@@ -42,45 +28,77 @@ body:
       required: true
 
   - type: textarea
-    id: frozen_prompt
+    id: core_matrix
     attributes:
-      label: "Frozen Base Prompt"
-      description: "Provide the exact system and user prompt used across all 7 calibration runs."
-      placeholder: "Paste the exact prompt text here..."
-    validations:
-      required: true
-
-  - type: textarea
-    id: calibration_matrix
-    attributes:
-      label: "7-Run Calibration Matrix Results"
-      description: "Fill in the required 7-run calibration table."
+      label: "Compulsory Core Benchmark: 7-Run Calibration Matrix Results"
+      description: "Record your 7-run calibration results for the compulsory Barbara Oakley 'Learning How to Learn' & Grit benchmark."
       value: |
-        | Run | Temp | Top-K | Top-P | Output Tokens | Perceived Coherence (1-10) | Key Qualitative Observations |
+        | Run ID | Temp | Top-K | Top-P | Output Tokens | Perceived Coherence (1-10) | Key Qualitative Observations |
         | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-        | **1** | 0.0 | 1 | 1.0 | | | Deterministic baseline |
-        | **2** | 0.2 | 40 | 0.8 | | | Focused coherence |
-        | **3** | 0.7 | 40 | 0.9 | | | Balanced creativity |
-        | **4** | 1.2 | 40 | 0.5 | | | High Temp / Constrained Nucleus |
-        | **5** | 0.9 | 10 | 0.95 | | | High Nucleus / Constrained Top-K |
-        | **6** | 1.4 | 100 | 0.98 | | | High entropy exploration |
-        | **7** | 1.8 | 200+ | 1.0 | | | Degeneration stress test |
+        | **Run 1A** | 0.0 | 1 | 1.0 | | | Deterministic Anchor (Greedy decoding) |
+        | **Run 1B** | 0.2 | 40 | 0.8 | | | Low-Entropy Coherence |
+        | **Run 2A** | 0.7 | 40 | 0.9 | | | Balanced Standard |
+        | **Run 2B** | 1.2 | 40 | 0.5 | | | High Temp / Tight Nucleus |
+        | **Run 3A** | 0.9 | 10 | 0.95 | | | Restricted Top-K / High Nucleus |
+        | **Run 3B** | 1.4 | 100 | 0.98 | | | High Entropy Exploration |
+        | **Run 4 (Stress)** | 1.8 | 200+ | 1.0 | | | Degeneration Stress Test |
+    validations:
+      required: true
+
+  - type: dropdown
+    id: elective_track
+    attributes:
+      label: "Elective Domain Practice Track"
+      description: "Select the elective track you used to test your production sweet-spot vector."
+      options:
+        - "Track 1: The Product Ad"
+        - "Track 2: The Mystery Story"
+        - "Track 3: The Tech Incident Report"
+        - "Track 4: The Social Media Bio"
+        - "Track 5: The Fun Office Memo"
     validations:
       required: true
 
   - type: textarea
-    id: empirical_analysis
+    id: elective_output
     attributes:
-      label: "Empirical Analysis & Theoretical Reflection"
-      description: "Analyze the phase transitions between deterministic output and semantic breakdown. Discuss how Top-P and Top-K interact under high thermal regimes."
+      label: "Elective Domain Output & Chosen Parameter Vector"
+      description: "Paste your calibrated parameter vector (Temp, Top-K, Top-P) and the generated output for your chosen elective track."
+      placeholder: |
+        ### Chosen Parameter Vector
+        - Temperature (T): 0.7
+        - Top-K: 40
+        - Top-P: 0.9
+
+        ### Generated Output
+        [Paste your elective output here]
     validations:
       required: true
 
   - type: textarea
-    id: sweet_spot
+    id: reflection_softmax_mechanics
     attributes:
-      label: "The 'Sweet Spot' Parameter Vector"
-      description: "State your recommended parameter vector (Temp, Top-K, Top-P) for this prompt track and provide engineering justification."
+      label: "Reflection: Softmax Scaling & Logit Dynamics"
+      description: "Explain mathematically and empirically how temperature rescaled the logit vector in the softmax calculation across your benchmark runs."
+      placeholder: "Discuss how z_i / T altered probability distribution sharpness, peak sharpening at low T, and tail expansion at high T..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reflection_sweet_spot
+    attributes:
+      label: "Reflection: Sweet Spot Vector & Domain Justification"
+      description: "State your recommended parameter vector for production deployment and explain why it succeeded on your elective track."
+      placeholder: "Provide engineering justification for your chosen Temperature, Top-K, and Top-P settings on the elective domain..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reflection_failure_boundary
+    attributes:
+      label: "Reflection: Failure Boundary Analysis"
+      description: "Analyze the exact threshold where the model began to degenerate (e.g., token stutter, semantic drift, phonetic loops). Compare Run 2B (high Temp, tight Nucleus) vs. Run 3A (tight Top-K, high Nucleus)."
+      placeholder: "Describe the degradation onset, pseudo-science hallucination threshold, and parameter interactions..."
     validations:
       required: true
 
@@ -89,7 +107,9 @@ body:
     attributes:
       label: "Self-Audit & Verification"
       options:
-        - label: "I kept the prompt and model frozen across all 7 calibration runs."
+        - label: "I kept the compulsory 'Learning How to Learn' benchmark prompt frozen across all 7 runs."
+          required: true
+        - label: "I tested my calibrated sweet-spot parameters against the chosen elective domain track."
           required: true
         - label: "I reviewed my submission against the 100-point rubric."
           required: true
