@@ -39,6 +39,21 @@ Every core interactive control (buttons, inputs, selectable cards, tabs, or drop
 4. **Active / Pressed** (tactile confirmation)
 5. **Disabled** (clearly non-interactive, reduced emphasis)
 
+### 5. Pair Group Component Ownership (Partner A vs. Partner B)
+
+For **Part B (Group Projects)**, paired mentees must divide screens and components cleanly so **no partner duplicates the other's work**:
+
+- **Partner A — System Shell, Navigation & Browse Views:** Responsible for the structural shell, top-level headers, filter controls, hero summaries, and browse/listing grids.
+- **Partner B — Core Transaction, Modals & State Flows:** Responsible for interactive drawers, modals, multi-step wizards, state toggles, validation/error/promo states, and confirmation receipts or status badges.
+- **Single Controlled Overlap (`SPEC.md` / `tokens.css`):** Both partners must share a single `SPEC.md` and/or `tokens.css` file under `submissions/module-02/groups/group-<1-4>/` for shared 8pt grid rules, 60-30-10 color tokens, and typography definitions. This file is the **only** permitted overlap point and is used intentionally for the mandatory Git merge conflict exercise below.
+
+| Group | Project Topic | Partner A (System Shell, Navigation & Browse Views) | Partner B (Core Transaction, Modals & State Flows) |
+| :--- | :--- | :--- | :--- |
+| **Group 1** | Multi-Vendor Food & Grocery Delivery Checkout | **Bonaventure:** Storefront & Menu Grid | **Ayuba Garba:** Checkout Drawer, Promo States & Confirmation |
+| **Group 2** | Co-Working Space & Desk Reservation Platform | **Rimamtawey:** Workspace Header & Desk Availability Grid | **Kelechi:** Slot Booking Modal, Error States & Pass Receipt |
+| **Group 3** | Open-Source Developer Bounty & Issue Tracker | **Joshua:** Repo Header, Bounty Filters & Issue Feed | **Ngbede:** Issue Detail Drawer, Claim Bounty Modal & Payout Badges |
+| **Group 4** | Personal Finance & Automated Savings Vaults | **Bitrus:** Balance Hero & Savings Vaults Grid | **Special:** Create Vault Wizard, Auto-Save Toggles & Withdrawal Alert |
+
 ---
 
 ## Part 2: Strict Git & Collaborative CLI Workflow
@@ -73,8 +88,8 @@ All version-control work must be executed from the terminal (no GitHub web-edito
   ```
 
 ### 3. Mandatory Peer Merge Conflict Resolution (Group Branch Only)
-Both partners on `feat/m02-grp-<1-4>` must intentionally trigger and cleanly resolve at least **one real Git merge conflict**:
-1. Both partners branch or commit concurrently against the shared `feat/m02-grp-<1-4>` branch, editing the **same section** of a shared file (e.g., `design-tokens.md` or `README.md` in `submissions/module-02/groups/group-<1-4>/`).
+Both partners on `feat/m02-grp-<1-4>` must keep their assigned screens/components strictly separate and use the shared **`SPEC.md`** or **`tokens.css`** file as their **single controlled overlap point** to intentionally trigger and cleanly resolve at least **one real Git merge conflict**:
+1. Both partners commit concurrently against the shared `feat/m02-grp-<1-4>` branch, editing the **same section** of the shared `SPEC.md` or `tokens.css` file in `submissions/module-02/groups/group-<1-4>/` (e.g., adding Partner A's shell tokens and Partner B's modal/state tokens in the same token block).
 2. Partner A pushes first to `origin feat/m02-grp-<1-4>`.
 3. Partner B runs `git fetch origin && git merge origin/feat/m02-grp-<1-4>`, encounters the conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`), resolves them manually so **both partners' work is preserved**, stages the resolved file, and completes the merge commit.
 4. Do **not** force-push (`git push --force`) or squash away the merge commit—reviewers will verify the merge history via `git log --oneline --graph`.

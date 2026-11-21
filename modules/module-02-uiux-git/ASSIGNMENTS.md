@@ -25,12 +25,20 @@ Every mentee is responsible for **two deliverables**:
 
 ## Part B: 4 Locked Pair Group Projects
 
-| Group | Assigned Pair | Group Project Topic | Required Feature Branch |
-| :--- | :--- | :--- | :--- |
-| **Group 1** | **Bonaventure** & **Ayuba Garba** | Multi-Vendor Food & Grocery Delivery Checkout | `feat/m02-grp-1` |
-| **Group 2** | **Rimamtawey** & **Kelechi** | Co-Working Space & Desk Reservation Platform | `feat/m02-grp-2` |
-| **Group 3** | **Joshua** & **Ngbede** | Open-Source Developer Bounty & Issue Tracker | `feat/m02-grp-3` |
-| **Group 4** | **Bitrus** & **Special** | Personal Finance & Automated Savings Vaults | `feat/m02-grp-4` |
+### Partner Role Division Rules (Non-Overlapping Deliverables)
+
+To prevent duplicate screens and ensure clean parallel Git collaboration, every pair splits UI/UX ownership strictly along two non-overlapping tracks:
+
+- **Partner A — System Shell, Navigation & Browse Views:** Owns the app shell, headers, navigation/filter bars, hero summaries, and primary browse/grid views.
+- **Partner B — Core Transaction, Modals & State Flows:** Owns interactive drawers, modals, multi-step wizards, toggles, error/promo/validation states, and confirmation receipts/badges.
+- **Controlled Overlap Point (`SPEC.md` / `tokens.css`):** Partners must **not** build or edit each other's assigned screens. The **only** shared file both partners intentionally edit concurrently is `SPEC.md` (and/or `tokens.css`) in `submissions/module-02/groups/group-<1-4>/`, which serves as the single controlled overlap point for the mandatory Git merge conflict exercise.
+
+| Group | Group Project Topic | Partner A (System Shell, Navigation & Browse Views) | Partner B (Core Transaction, Modals & State Flows) | Required Feature Branch |
+| :--- | :--- | :--- | :--- | :--- |
+| **Group 1** | Multi-Vendor Food & Grocery Delivery Checkout | **Bonaventure:** Storefront & Menu Grid | **Ayuba Garba:** Checkout Drawer, Promo States & Confirmation | `feat/m02-grp-1` |
+| **Group 2** | Co-Working Space & Desk Reservation Platform | **Rimamtawey:** Workspace Header & Desk Availability Grid | **Kelechi:** Slot Booking Modal, Error States & Pass Receipt | `feat/m02-grp-2` |
+| **Group 3** | Open-Source Developer Bounty & Issue Tracker | **Joshua:** Repo Header, Bounty Filters & Issue Feed | **Ngbede:** Issue Detail Drawer, Claim Bounty Modal & Payout Badges | `feat/m02-grp-3` |
+| **Group 4** | Personal Finance & Automated Savings Vaults | **Bitrus:** Balance Hero & Savings Vaults Grid | **Special:** Create Vault Wizard, Auto-Save Toggles & Withdrawal Alert | `feat/m02-grp-4` |
 
 ---
 
