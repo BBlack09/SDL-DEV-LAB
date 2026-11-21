@@ -6,26 +6,36 @@ We welcome contributions, lab submissions, and technical discussions from all co
 
 ## 🛠️ Lab Submission Workflow
 
-Submissions are managed primarily through **GitHub Issues** using our structured submission templates:
+Submissions follow our **Hybrid CLI-to-PR + Issue Registry** workflow so every engineering artifact is backed by real Git history and tracked cleanly for rubric grading:
 
-1. **Local Exploration:**
-   - Work locally in your own branch: `feat/module-XX-<username>`.
-   - Never push directly to `main`.
-2. **Issue Filing:**
+1. **Local Branching & Atomic Commits:**
+   - Sync `main` and create your assigned feature branch (e.g., `feat/m02-ind-<name>` for individual work or `feat/m02-grp-<1-4>` for pair projects).
+   - Never commit or push directly to `main`.
+   - Use **Conventional Commits** (`feat:`, `fix:`, `docs:`, `style:`, `refactor:`) and selective staging (`git add -p`) for clean, atomic history.
+   - For pair/group modules, resolve peer merge conflicts cleanly with `git merge` and preserve the merge commit graph (no `git push --force`).
+2. **CLI Pull Request Creation (`gh pr create`):**
+   - Push your feature branch and open your Pull Request directly from the terminal using the GitHub CLI:
+     ```bash
+     git push -u origin <your-branch>
+     gh pr create --base main --head <your-branch>
+     ```
+   - Fill out `.github/pull_request_template.md` completely. For group PRs, your partner must leave a peer review comment or approval.
+3. **Issue Registry Filing:**
    - Navigate to the **Issues** tab and click **New Issue**.
-   - Select the template corresponding to your module (e.g., `Module 01 Lab Submission: Hyperparameters & Decoding`).
-   - Complete every section thoroughly, including the calibration table and qualitative failure analysis.
-3. **Labeling & Review:**
-   - Issues automatically receive the `needs-review` and `module-01` labels.
-   - Cohort leads and peer reviewers will review submissions against the official [`rubric.md`](modules/module-01-hyperparameters/rubric.md).
-   - Once evaluated, your issue will be tagged with `reviewed`.
+   - Select the template corresponding to your module (e.g., `🔬 Module 01 Lab Submission` or `🔬 Module 02 Lab Submission: UI/UX & Collaborative Git`).
+   - Register your CLI-created PR URL(s), prototype/artifact links, `git log` proofs, and self-audit checklist.
+4. **Labeling & Review:**
+   - Issues automatically receive `sdl-cohort`, `module-XX`, and `needs-review` labels.
+   - Cohort leads and peer reviewers evaluate submissions against the module's official `rubric.md` ([Module 01](modules/module-01-hyperparameters/rubric.md) | [Module 02](modules/module-02-uiux-git/rubric.md)).
+   - Once evaluated, your issue is tagged with `reviewed`.
 
 ---
 
 ## 💬 Discussion Guidelines
 
 Use the appropriate category in [GitHub Discussions](https://github.com/Skillodev/sdl-lab-dev/discussions):
-* **📢 SDL Announcements:** Official cohort updates (read-only for students).
+* **📢 SDL Announcements:** Official cohort updates, module launches, and assignment tables (read-only for students).
 * **🔬 Module 01 Labs (Hyperparameters):** Clarifications on formulas, API nuances, and parameter calibration.
-* **💡 Show and Tell / Failure Modes:** Share strange edge-cases, repetitive looping behaviors, and breakthrough prompt techniques.
-* **☕ Dev Lab Lounge:** General introductions, AI news, and cohort networking.
+* **🎨 Module 02 Labs (UI/UX & Git):** Questions on Google Stitch design systems, WCAG AA contrast audits, `git add -p`, and merge conflict resolution.
+* **💡 Show and Tell / Failure Modes:** Share strange edge-cases, UI breakthroughs, and engineering lessons learned.
+* **☕ Dev Lab Lounge:** General introductions, tech news, and cohort networking.

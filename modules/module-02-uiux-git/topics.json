@@ -1,0 +1,19 @@
+{
+  "module": "module-02-uiux-git",
+  "individual_topics": [
+    "Smart Grid & Solar Micro-Inverter Monitor",
+    "Agritech Farm-to-Market Logistics Portal",
+    "Telemedicine Triage & Patient Booking Hub",
+    "Fintech Cross-Border Escrow & Remittance UI",
+    "Civic Utility & Municipal Issue Reporter",
+    "EdTech Interactive Code & STEM Sandbox",
+    "Fleet Maintenance & Fuel Telemetry Dashboard",
+    "Event Ticketing & QR Access Control System"
+  ],
+  "group_topics": [
+    "Multi-Vendor Food & Grocery Delivery Checkout",
+    "Co-Working Space & Desk Reservation Platform",
+    "Open-Source Developer Bounty & Issue Tracker",
+    "Personal Finance & Automated Savings Vaults"
+  ]
+}

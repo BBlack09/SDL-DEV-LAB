@@ -1,0 +1,69 @@
+name: Shuffle Cohort Pairings & Topics
+
+on:
+  workflow_dispatch:
+    inputs:
+      module_slug:
+        description: "Target module folder slug (e.g., module-03-frontend-arch)"
+        required: true
+        type: string
+      custom_seed:
+        description: "Optional integer seed for reproducible shuffle (leave blank for true random)"
+        required: false
+        default: ""
+        type: string
+      record_history:
+        description: "Append generated pairs to cohort/roster.json past_pairs history"
+        required: false
+        default: true
+        type: boolean
+
+permissions:
+  contents: write
+
+jobs:
+  shuffle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate cohort pairings and topic assignments
+        env:
+          MODULE_SLUG: ${{ inputs.module_slug }}
+          CUSTOM_SEED: ${{ inputs.custom_seed }}
+          RECORD_HISTORY: ${{ inputs.record_history }}
+        run: |
+          args=(
+            "scripts/pair_mentees.py"
+            "--module" "$MODULE_SLUG"
+            "--output" "modules/$MODULE_SLUG/ASSIGNMENTS.md"
+          )
+          if [ -n "$CUSTOM_SEED" ]; then
+            args+=("--seed" "$CUSTOM_SEED")
+          fi
+          if [ "$RECORD_HISTORY" = "true" ]; then
+            args+=("--record-history")
+          fi
+          python3 "${args[@]}"
+
+      - name: Commit and push updated assignments
+        env:
+          MODULE_SLUG: ${{ inputs.module_slug }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add "modules/$MODULE_SLUG/ASSIGNMENTS.md" cohort/roster.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "chore(cohort): shuffle pairings and topics for $MODULE_SLUG"
+          git push

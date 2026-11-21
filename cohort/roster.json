@@ -1,0 +1,32 @@
+{
+  "cohort": "Dev Lab (SDL) Engineering Cohort",
+  "mentees": [
+    "Kelechi",
+    "Rimamtawey",
+    "Special",
+    "Ayuba Garba",
+    "Joshua",
+    "Bonaventure",
+    "Ngbede",
+    "Bitrus"
+  ],
+  "past_pairs": [
+    ["Bonaventure", "Ayuba Garba"],
+    ["Rimamtawey", "Kelechi"],
+    ["Joshua", "Ngbede"],
+    ["Bitrus", "Special"]
+  ],
+  "history": [
+    {
+      "module": "module-02-uiux-git",
+      "seed": "locked-baseline",
+      "timestamp": "2026-11-21T00:00:00Z",
+      "pairs": [
+        ["Bonaventure", "Ayuba Garba"],
+        ["Rimamtawey", "Kelechi"],
+        ["Joshua", "Ngbede"],
+        ["Bitrus", "Special"]
+      ]
+    }
+  ]
+}

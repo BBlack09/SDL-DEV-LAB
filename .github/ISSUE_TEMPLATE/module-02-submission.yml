@@ -1,0 +1,126 @@
+name: "🔬 Module 02 Lab Submission: UI/UX & Collaborative Git"
+description: "Register your Individual and Group CLI-created Pull Requests, Google Stitch prototypes, and Git collaboration proofs for Module 02."
+title: "[Submission] Module 02: <Your Name>"
+labels: ["sdl-cohort", "module-02", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Dev Lab (SDL) Engineering Cohort: Module 02 Submission Registry
+        Complete every field below after opening **both** your Individual PR and Group PR via `gh pr create`.
+        Refer to [`ASSIGNMENTS.md`](../../modules/module-02-uiux-git/ASSIGNMENTS.md), [`exercises.md`](../../modules/module-02-uiux-git/exercises.md), and [`rubric.md`](../../modules/module-02-uiux-git/rubric.md).
+
+  - type: dropdown
+    id: mentee_name
+    attributes:
+      label: "Mentee Name & Individual Project"
+      description: "Select your name and locked Module 02 individual project."
+      options:
+        - "1. Kelechi — Smart Grid & Solar Micro-Inverter Monitor (feat/m02-ind-kelechi)"
+        - "2. Rimamtawey — Agritech Farm-to-Market Logistics Portal (feat/m02-ind-rimamtawey)"
+        - "3. Special — Telemedicine Triage & Patient Booking Hub (feat/m02-ind-special)"
+        - "4. Ayuba Garba — Fintech Cross-Border Escrow & Remittance UI (feat/m02-ind-ayuba-garba)"
+        - "5. Joshua — Civic Utility & Municipal Issue Reporter (feat/m02-ind-joshua)"
+        - "6. Bonaventure — EdTech Interactive Code & STEM Sandbox (feat/m02-ind-bonaventure)"
+        - "7. Ngbede — Fleet Maintenance & Fuel Telemetry Dashboard (feat/m02-ind-ngbede)"
+        - "8. Bitrus — Event Ticketing & QR Access Control System (feat/m02-ind-bitrus)"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: locked_group
+    attributes:
+      label: "Locked Module 02 Pair Group"
+      description: "Select your assigned Module 02 pair group and shared branch."
+      options:
+        - "Group 1 (Bonaventure & Ayuba Garba) — Multi-Vendor Food & Grocery Delivery Checkout (feat/m02-grp-1)"
+        - "Group 2 (Rimamtawey & Kelechi) — Co-Working Space & Desk Reservation Platform (feat/m02-grp-2)"
+        - "Group 3 (Joshua & Ngbede) — Open-Source Developer Bounty & Issue Tracker (feat/m02-grp-3)"
+        - "Group 4 (Bitrus & Special) — Personal Finance & Automated Savings Vaults (feat/m02-grp-4)"
+    validations:
+      required: true
+
+  - type: input
+    id: individual_pr_url
+    attributes:
+      label: "Individual Pull Request URL (CLI-created via gh pr create)"
+      description: "Paste the full GitHub PR URL for your feat/m02-ind-<name> branch."
+      placeholder: "https://github.com/Skillodev/sdl-lab-dev/pull/..."
+    validations:
+      required: true
+
+  - type: input
+    id: group_pr_url
+    attributes:
+      label: "Group Pull Request URL (CLI-created via gh pr create)"
+      description: "Paste the full GitHub PR URL for your shared feat/m02-grp-<1-4> branch."
+      placeholder: "https://github.com/Skillodev/sdl-lab-dev/pull/..."
+    validations:
+      required: true
+
+  - type: input
+    id: individual_stitch_url
+    attributes:
+      label: "Individual Google Stitch Prototype URL"
+      description: "Provide a publicly viewable or cohort-accessible Google Stitch link for your individual project."
+      placeholder: "https://stitch.withgoogle.com/..."
+    validations:
+      required: true
+
+  - type: input
+    id: group_stitch_url
+    attributes:
+      label: "Group Google Stitch Prototype URL"
+      description: "Provide a publicly viewable or cohort-accessible Google Stitch link for your pair group project."
+      placeholder: "https://stitch.withgoogle.com/..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: individual_git_log
+    attributes:
+      label: "Individual Branch git log Output"
+      description: "Paste the output of `git log --oneline -n 10` from your feat/m02-ind-<name> branch (minimum 5 atomic Conventional Commits)."
+      render: text
+      placeholder: |
+        a1b2c3d fix(m02): improve focus ring contrast ratio to 4.8:1
+        d4e5f6g feat(m02): add 5 interactive component states to Stitch spec
+        ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: group_git_log
+    attributes:
+      label: "Group Branch git log --oneline --graph & Merge Conflict Proof"
+      description: "Paste the output of `git log --oneline --graph -n 15` from feat/m02-grp-<1-4> and briefly summarize how you and your partner resolved the mandatory peer merge conflict."
+      render: text
+      placeholder: |
+        *   9f8e7d6 Merge remote-tracking branch 'origin/feat/m02-grp-1' into feat/m02-grp-1
+        |\
+        | * ...
+        * | ...
+
+        Conflict resolution notes: ...
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: verification_checklist
+    attributes:
+      label: "UI/UX & Git Verification Checklist"
+      options:
+        - label: "Both Google Stitch prototypes follow the 8pt spatial grid and 60-30-10 color rule."
+          required: true
+        - label: "All text and UI controls meet WCAG AA (>= 4.5:1 normal text) contrast ratios."
+          required: true
+        - label: "All 5 interactive component states (Default, Hover, Focus, Active/Pressed, Disabled) are demonstrated."
+          required: true
+        - label: "Both branches contain 5+ atomic Conventional Commits staged cleanly with `git add -p`."
+          required: true
+        - label: "A genuine peer merge conflict was resolved on the group branch without force-pushing."
+          required: true
+        - label: "Both Individual and Group Pull Requests were opened from the terminal using `gh pr create`."
+          required: true
+        - label: "I self-audited my submission against the 100-point Module 02 Rubric."
+          required: true
